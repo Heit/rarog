@@ -1,4 +1,6 @@
 
+
+http://www.webmonkey.com/tutorial/Use_URL_Patterns_and_Views_in_Django
 Rarog Project=/home/heit/production/rarog CD=. filter="*" {
  __init__.py
  __init__.pyc

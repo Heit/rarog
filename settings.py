@@ -71,6 +71,12 @@ TEMPLATE_DIRS = (
     os.path.join(os.path.dirname(__file__), 'templates')
 )
 
+AUTHENTICATION_BACKENDS = (
+    'rarog.rarogsite.auth_backends.CustomUserModelBackend',
+)
+
+CUSTOM_USER_MODEL = 'rarog.rarogsite.models.RarogUser'
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -79,4 +85,5 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'rarog.tagging',
     'rarog.rarogsite',
+    'photologue'
 )

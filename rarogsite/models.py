@@ -37,3 +37,36 @@ class Entry(models.Model):
     def save(self):
         self.body_html = markdown.markdown(self.body_markdown, safe_mode = False)
         super(Entry, self).save()
+
+
+from django.contrib.auth.models import User, UserManager
+from photologue.models import Photo
+
+class RarogUser(User):
+    timezone = models.CharField(max_length=50, default='Europe/Moskow')
+    objects = UserManager()
+    photo = models.ForeignKey(Photo)
+    seat = models.CharField(max_length=30)
+    description = models.TextField()
+
+class FirstPageEntry(models.Model):
+    body_html = models.TextField(blank=True)
+    body_mrk = models.TextField()
+    dataorder = models.PositiveIntegerField(default = 1)
+
+    class Meta:
+        ordering = ('-dataorder',)
+        get_latest_by = 'dataorder'
+
+    def save(self):
+        self.body_html = markdown.markdown(self.body_mrk, safe_mode = False)
+        super(FirstPageEntry, self).save()
+
+class FirstPageImage(models.Model):
+    image = models.ForeignKey(Photo)
+    dataorder = models.PositiveIntegerField(default = 1)
+
+    class Meta:
+        ordering = ('-dataorder',)
+        get_latest_by = 'dataorder'
+
