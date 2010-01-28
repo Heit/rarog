@@ -1,0 +1,119 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-20 12:01+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\settings.py:38
+msgid "Russain"
+msgstr "Русский"
+
+#: .\settings.py:39
+msgid "English"
+msgstr "English"
+
+#: .\entries\models.py:30
+msgid "entry"
+msgstr "Событие"
+
+#: .\entries\models.py:31
+msgid "entries"
+msgstr "События клуба"
+
+#: .\firstpage\models.py:10
+msgid "body"
+msgstr "Текст сообщения"
+
+#: .\firstpage\models.py:11 .\firstpage\models.py:25
+msgid "dataorder"
+msgstr "Порядок отображения"
+
+#: .\firstpage\models.py:30
+msgid "pageimage"
+msgstr "Заглавный слайд"
+
+#: .\firstpage\models.py:31
+msgid "pageimages"
+msgstr "Заглавные слайды"
+
+#: .\news\admin.py:11
+msgid "Advanced options"
+msgstr "Дополнительные параметры"
+
+#: .\news\models.py:7
+msgid "title"
+msgstr "Заголовок"
+
+#: .\news\models.py:8
+msgid "descriptn"
+msgstr "Описание"
+
+#: .\news\models.py:9
+msgid "eventdate"
+msgstr "Дата мероприятия"
+
+#: .\news\models.py:10
+msgid "pubdate"
+msgstr "Дата публикации"
+
+#: .\news\models.py:11
+msgid "organizer"
+msgstr "Организатор"
+
+#: .\news\models.py:12
+msgid "orgsite"
+msgstr "сайт организатора"
+
+#: .\news\models.py:16
+msgid "sitenew"
+msgstr "Новость"
+
+#: .\news\models.py:17
+msgid "sitenews"
+msgstr "Новости клуба"
+
+#: .\users\models.py:16
+msgid "userprofile"
+msgstr "Профиль пользователя"
+
+#: .\users\models.py:17
+msgid "userprofiles"
+msgstr "Профили пользователей"
+
+msgid "Rarog administration"
+msgstr "Администрирование сайта 'Рарог'"
+
+#, fuzzy
+#~ msgid "pageitem"
+#~ msgstr "Заглавный слайд"
+
+#, fuzzy
+#~ msgid "pageitems"
+#~ msgstr "Заглавные слайды"
+
+#, fuzzy
+#~ msgid "pageentry"
+#~ msgstr "Заглавный параграф"
+
+#, fuzzy
+#~ msgid "pageentries"
+#~ msgstr "События клуба"
+
+#, fuzzy
+#~ msgid "pageentrys"
+#~ msgstr "Заглавные параграфы"
+
+#~ msgid "image"
+#~ msgstr "Слайд"

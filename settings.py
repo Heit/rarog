@@ -4,17 +4,21 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Kirill Kosinov', 'kirill.kosinov@gmail.com'),
+    ('Kirill Kosinov', 'kirill.kosinov@gmail.com'),
 )
 
 MANAGERS = ADMINS
 
-DATABASE_ENGINE = 'postgresql_psycopg2'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-DATABASE_NAME = 'rarogdb'             # Or path to database file if using sqlite3.
-DATABASE_USER = 'rarog'             # Not used with sqlite3.
-DATABASE_PASSWORD = 'rarog'         # Not used with sqlite3.
-DATABASE_HOST = '127.0.0.1'             # Set to empty string for localhost. Not used with sqlite3.
-DATABASE_PORT = '5432'             # Set to empty string for default. Not used with sqlite3.
+DATABASE_ENGINE = 'sqlite3'           # 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+
+import os.path
+
+DATABASE_NAME = os.path.join(os.path.dirname(__file__), 'rarog.db')
+#DATABASE_NAME = 'rarogdb'             # Or path to database file if using sqlite3.
+#DATABASE_USER = 'rarog'             # Not used with sqlite3.
+#DATABASE_PASSWORD = 'rarog'         # Not used with sqlite3.
+#DATABASE_HOST = '127.0.0.1'             # Set to empty string for localhost. Not used with sqlite3.
+#DATABASE_PORT = '5432'             # Set to empty string for default. Not used with sqlite3.
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -25,7 +29,18 @@ TIME_ZONE = 'Europe/Moscow'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
+
+
+ugettext = lambda s: s
+
+LANGUAGES = (
+  ('ru', ugettext('Russain')),
+  ('en', ugettext('English')),
+)
+
+
+CHARACTER_SET= 'UTF-8'
 
 SITE_ID = 1
 
@@ -48,7 +63,7 @@ MEDIA_URL = ''
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '=1j9&zn$2g)!m8nh4vo2q9vz*j)nfd!2yc8-(685%)0h#8ay+z'
+SECRET_KEY = 'y503nk)qn5oa-oygua9_rx%umh@e#9l4%l)x0y%$7_k8@b=2u^'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -58,24 +73,29 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
+AUTH_PROFILE_MODULE = 'users.UserProfile'
+
+
 ROOT_URLCONF = 'rarog.urls'
 
-import os.path
-
 TEMPLATE_DIRS = (
-    os.path.join(os.path.dirname(__file__), 'templates')
+	os.path.join(os.path.dirname(__file__), 'templates')
 )
 
-AUTHENTICATION_BACKENDS = (
-    'rarog.rarogsite.auth_backends.CustomUserModelBackend',
+STATIC_DOC_ROOT = (
+	os.path.join(os.path.dirname(__file__), 'media')
 )
 
-CUSTOM_USER_MODEL = 'rarog.rarogsite.models.RarogUser'
+GALERY_PATH = (
+	os.path.join(os.path.dirname(__file__), 'photologue')
+)
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -83,7 +103,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'rarog.tagging',
-    'rarog.rarogsite',
-    'photologue'
+    'photologue',
+    'tagging',
+    'rarog.users',
+    'rarog.news',
+    'rarog.firstpage',
+    'rarog.entries',
 )

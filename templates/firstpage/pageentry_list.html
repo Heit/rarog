@@ -1,0 +1,61 @@
+{% extends "base.html" %}            
+
+{% block slider %}
+    <div id="main-photo-slider" class="stripViewer" style="margin:10px">
+       <div class="panelContainer">
+        {% for pageimage in pageimages %}
+           <div class="panel" title="Panel{{pageimage.dataorder}}">
+                <div class="wrapper">
+		   <a title="">
+                     <img src="{{ pageimage.image.get_slide_url }}"  alt="" width="600"/>
+                   </a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+	<br/>
+        {% for pageentry in pageitems %}
+        <div class="pageentry">
+            {{ pageentry.body_html|safe }}
+	</div>
+        {% endfor %}
+{% endblock %}
+
+
+{% block news %}
+        {% for sitenew in sitenews %}
+	<div class="news">
+		<p class="title">
+			{{ sitenew.title }}
+		</p>
+		<p class="content" style="font-size: 0.9em; font-style: italic; padding-left: 5px;">{{sitenew.descriptn}}</p>
+		<p class="date" style="font-size: 0.8em; color: rgb(119, 119, 119); padding-left: 5px;">Дата проведения: {{ sitenew.eventdate }}</p>
+		<p class="organizer" style="font-size: 0.8em; color: rgb(119, 119, 119); padding-left: 5px;">Организатор: {{ sitenew.organizer }}</p>
+		<p class="site" style="font-size: 0.8em; color: rgb(119, 119, 119); padding-left: 5px;">Сайт мероприятия: <a href="{{sitenew.orgsite}}">{{sitenew.orgsite}}</a></p>
+		</p>
+	</div>
+        {% endfor %}
+{% endblock %}
+
+{% block story %}
+  {% if profile %}
+    <h2>Лица клуба</h2>
+
+    <div class="story-frame">
+	{% if profile.photo %}
+        	<img title="Лицо клуба" alt="Лицо клуба" src="{{ profile.photo.get_userthumb_url }}"/>
+	{% else %}
+	        <img title="Лицо клуба" alt="Лицо клуба" src="images/rarog-unknown-77.png"/>
+	{% endif %}
+    </div>
+    <div class="person-info">
+        <h3 style="margin:0; padding:0; ">{{ profile.user.last_name }} {{ profile.user.first_name }}</h3>
+        <h4 style="margin:0; padding:3px; font-size: 0.9em; font-style:italic;">{{ profile.seat }} </h4>
+        <p> {{ profile.description }}</p>
+    </div>
+  {% endif %}
+{% endblock %}
