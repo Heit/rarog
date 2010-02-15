@@ -361,8 +361,6 @@ div.news p {
     background: transparent url( /site_media/images/search.png ) no-repeat scroll center center;
     border: medium none;
     cursor: pointer;
-    height: 22px;
-    width: 22px;
 }
 
 #search-string {

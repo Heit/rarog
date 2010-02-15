@@ -1,3 +1,5 @@
+import os
+
 from django.db import models
 from django.contrib.syndication.feeds import Feed
 from django.contrib.sitemaps import Sitemap
@@ -7,6 +9,13 @@ import markdown
 from tagging.fields import TagField
 from tagging.models import Tag
 from photologue.models import Photo
+
+from django.db.models import signals
+
+from django.conf import settings
+from whoosh import store, fields
+from whoosh.filedb.filestore import FileStorage
+from whoosh import index
 
 class Entry(models.Model):
     title = models.CharField(max_length=200)
@@ -39,8 +48,26 @@ class Entry(models.Model):
         return "/%s/%s/" %(self.pub_date.strftime("%Y/%b/%d").lower(), self.slug)
 
     def save(self):
-	import pdb
-	pdb.set_trace()
         self.body_html = markdown.markdown(self.body_markdown, safe_mode = False)
         super(Entry, self).save()
+
+def update_index(sender, instance, created, **kwargs):
+    storage = FileStorage(settings.WHOOSH_INDEX)
+    ix = storage.open_index(indexname="rarog")
+    writer = ix.writer()
+    if created:
+        writer.add_document(title=unicode(instance), body_html=instance.body_html,
+                                    url=unicode(instance.get_absolute_url()))
+        writer.commit()
+    else:
+        writer.update_document(title=unicode(instance), body_html=instance.body_html,
+                                    url=unicode(instance.get_absolute_url()))
+        writer.commit()
+
+
+signals.post_save.connect(update_index, sender=Entry)
+
+
+
+
 

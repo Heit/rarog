@@ -96,6 +96,10 @@ GALERY_PATH = (
 	os.path.join(os.path.dirname(__file__), 'photologue')
 )
 
+WHOOSH_INDEX = (
+    os.path.join(os.path.dirname(__file__), 'idx')
+)
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
