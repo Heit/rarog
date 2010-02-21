@@ -7,7 +7,7 @@ class EntryAdmin(admin.ModelAdmin):
     list_filter = ('pub_date','enable_comments','status')
     prepopulated_fields = {"slug":('title',)}
     fieldsets = (
-        (None, {'fields':(('title','status'),'body_markdown',('pub_date','enable_comments'),'tags','slug','image')}),
+        (None, {'fields':(('title','status'),'body_markdown','descriptn',('pub_date','enable_comments'),'tags','slug','image','gallery')}),
     )
 
 admin.site.register(Entry, EntryAdmin)

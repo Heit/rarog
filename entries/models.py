@@ -8,7 +8,7 @@ from django.utils.translation import ugettext as _
 import markdown
 from tagging.fields import TagField
 from tagging.models import Tag
-from photologue.models import Photo
+from photologue.models import Gallery, Photo
 
 from django.db.models import signals
 
@@ -25,7 +25,9 @@ class Entry(models.Model):
     )
     body_html = models.TextField(blank=True)
     body_markdown = models.TextField()
+    descriptn = models.TextField(_('descriptn'), max_length=255, blank=True, null=True)
     image = models.ForeignKey(Photo, null=True)
+    gallery = models.ForeignKey(Gallery, null=True, blank=True)
     pub_date = models.DateTimeField('Date published') 
     tags = TagField()
     enable_comments = models.BooleanField(default = True)
@@ -45,7 +47,7 @@ class Entry(models.Model):
 		return u'%s' %(self.title)
 
     def get_absolute_url(self):
-        return "/%s/%s/" %(self.pub_date.strftime("%Y/%b/%d").lower(), self.slug)
+        return "/entries/%s/%s/" %(self.pub_date.strftime("%Y/%b/%d").lower(), self.slug)
 
     def save(self):
         self.body_html = markdown.markdown(self.body_markdown, safe_mode = False)

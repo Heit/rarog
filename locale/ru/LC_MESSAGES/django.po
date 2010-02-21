@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-20 12:01+0300\n"
+"POT-Creation-Date: 2010-02-21 14:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,84 +16,117 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\settings.py:38
+#: settings.py:38
 msgid "Russain"
 msgstr "Русский"
 
-#: .\settings.py:39
+#: settings.py:39
 msgid "English"
 msgstr "English"
 
-#: .\entries\models.py:30
+#: entries/models.py:41
 msgid "entry"
 msgstr "Событие"
 
-#: .\entries\models.py:31
+#: entries/models.py:42
 msgid "entries"
 msgstr "События клуба"
 
-#: .\firstpage\models.py:10
+#: firstpage/models.py:10
 msgid "body"
 msgstr "Текст сообщения"
 
-#: .\firstpage\models.py:11 .\firstpage\models.py:25
+#: firstpage/models.py:11 firstpage/models.py:25
 msgid "dataorder"
 msgstr "Порядок отображения"
 
-#: .\firstpage\models.py:30
+#: firstpage/models.py:30
 msgid "pageimage"
 msgstr "Заглавный слайд"
 
-#: .\firstpage\models.py:31
+#: firstpage/models.py:31
 msgid "pageimages"
 msgstr "Заглавные слайды"
 
-#: .\news\admin.py:11
+#: news/admin.py:11
 msgid "Advanced options"
 msgstr "Дополнительные параметры"
 
-#: .\news\models.py:7
+#: news/models.py:7
 msgid "title"
 msgstr "Заголовок"
 
-#: .\news\models.py:8
+#: news/models.py:8
 msgid "descriptn"
 msgstr "Описание"
 
-#: .\news\models.py:9
+#: news/models.py:9
 msgid "eventdate"
 msgstr "Дата мероприятия"
 
-#: .\news\models.py:10
+#: news/models.py:10
 msgid "pubdate"
 msgstr "Дата публикации"
 
-#: .\news\models.py:11
+#: news/models.py:11
 msgid "organizer"
 msgstr "Организатор"
 
-#: .\news\models.py:12
+#: news/models.py:12
 msgid "orgsite"
 msgstr "сайт организатора"
 
-#: .\news\models.py:16
+#: news/models.py:16
 msgid "sitenew"
 msgstr "Новость"
 
-#: .\news\models.py:17
+#: news/models.py:17
 msgid "sitenews"
 msgstr "Новости клуба"
 
-#: .\users\models.py:16
+#: users/models.py:17
 msgid "userprofile"
 msgstr "Профиль пользователя"
 
-#: .\users\models.py:17
+#: users/models.py:18
 msgid "userprofiles"
 msgstr "Профили пользователей"
 
-msgid "Rarog administration"
-msgstr "Администрирование сайта 'Рарог'"
+msgid "Please, log in."
+msgstr "Пожалуйста представьтесь"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Search results"
+msgstr "Результаты поска"
+
+msgid "The Rarog Club"
+msgstr "Клуб исторической реконструкции Рарог"
+
+msgid "Media"
+msgstr "Как это было в картинках"
+
+msgid "Play Slideshow"
+msgstr "Показать слайдшоу"
+
+msgid "Pause Slideshow"
+msgstr "Остановить слайдшоу"
+
+msgid "Previous Photo"
+msgstr "Туда"
+
+msgid "Next Photo"
+msgstr "Сюда"
+
+msgid "Download Original"
+msgstr "Скачать оригинал"
+
+msgid "Next"
+msgstr "Далее"
+
+#~ msgid "Rarog administration"
+#~ msgstr "Администрирование сайта 'Рарог'"
 
 #, fuzzy
 #~ msgid "pageitem"

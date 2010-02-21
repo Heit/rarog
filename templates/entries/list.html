@@ -1,23 +1,6 @@
-{% extends "base.html" %}
-
-{% block news %}
-    {% regroup page_data by yearmonth as month_list %}
-
-    <ul id="events" type="disc">
-    
-    {% for ym in month_list %}
-        <li>
-            {{ ym.grouper }}
-            <ul>
-            {% for item in ym.list %}
-                <li><a href="/entries/{{ item.entry.id }}">{{ item.entry.title }}</a></li>
-            {% endfor %}
-            </ul>
-        </li>
-    {% endfor %}
-    </ul>
-{% endblock %}
-
+{% extends "entries/index.html" %}
+{% load i18n %}
+        
 {% block content %}
     {% with page_data|first as selected %}
         <h1>
@@ -26,15 +9,18 @@
         <h2>
             {{ selected.entry.pub_date|date:"d M Y" }}
         </h2>
-        <div style="margin: 10px; width: 100%; text-align: center;">
-            <img alt="img" src="{{ selected.entry.image.get_slide_url }}"/>
-        </div>
         <div>
-            {{ selected.entry.body_html|safe }}
+            <p>
+              {% if selected.entry.descriptn %}
+                {{ selected.entry.descriptn }}
+              {% endif %}
+            </p>
+            <a href="{{ selected.entry.get_absolute_url }}"
+               style="float:right">
+                {% trans 'Next' %}  &rsaquo;
+            </a>
         </div>
     {% endwith %}
 {% endblock %}
 
-{% block search %} {% endblock %}
-{% block slidecontrol %} {% endblock %}
-{% block contentheader %} {% endblock %}
+

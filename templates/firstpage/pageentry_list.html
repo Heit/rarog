@@ -1,4 +1,5 @@
-{% extends "base.html" %}            
+{% extends "base.html" %}
+{% load i18n %}
 
 {% block slider %}
     <div id="main-photo-slider" class="stripViewer" style="margin:10px">
@@ -17,19 +18,31 @@
 {% endblock %}
 
 {% block content %}
-	<br/>
-        {% for pageentry in pageitems %}
-        <div class="pageentry">
-            {{ pageentry.body_html|safe }}
-	</div>
-        {% endfor %}
+	    <br/>
+        {% if hits %}
+        <h2>
+            {% trans "Search results" %}
+        </h2>
+        <ul class="search_results">
+            {% for hit in hits %}
+                <li><a href="{{ hit.url }}">{{ hit.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            {% for pageentry in pageitems %}
+                <div class="pageentry">
+                    {{ pageentry.body_html|safe }}
+	            </div>
+            {% endfor %}
+        {% endif %}
+
 {% endblock %}
 
 
 {% block news %}
         {% for sitenew in sitenews %}
 	<div class="news">
-		<p class="title">
+		<p class="title" style="text-decoration:underline">
 			{{ sitenew.title }}
 		</p>
 		<p class="content" style="font-size: 0.9em; font-style: italic; padding-left: 5px;">{{sitenew.descriptn}}</p>

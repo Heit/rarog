@@ -5,8 +5,8 @@ from collections import defaultdict
 from django.shortcuts import render_to_response
 from rarog.entries.models import Entry
 
-MONTH_NAMES = ('', 'ίνβΰπό', 'Τεβπΰλό', 'Μΰπς', 'ΐοπελό', 'Μΰι', 'Θώνό', 'Θώλό', 'ΐβγσρς' ,
-	       'Ρενςÿαπό', 'Ξκςÿαπό', 'Δεκΰαπό')
+MONTH_NAMES = ('', 'Π―Π½Π²Π°Ρ€Ρ', 'Π¤ΠµΠ²Ρ€Π°Π»Ρ', 'ΠΠ°Ρ€Ρ‚', 'ΠΠΏΡ€ΠµΠ»Ρ', 'ΠΠ°ΠΉ', 'ΠΡΠ½Ρ', 'ΠΡΠ»Ρ', 'Π¤Π²Π³ΡƒΡΡ‚' ,
+	       'Π΅ΠµΠ½Ρ‚ΡΠ±Ρ€Ρ', 'ΠΠΎΡΠ±Ρ€Ρ', 'Π”ΠµΠΊΠ°Π±Ρ€Ρ')
 
 def frontpage(request):
     entries, pagedata = init()

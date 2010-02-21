@@ -1,5 +1,6 @@
 *.pyc
 *.mo
+.idea
 photologue
 idx
 rarog.db

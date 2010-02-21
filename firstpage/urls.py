@@ -4,7 +4,7 @@ from django.conf import settings
 from rarog.firstpage.models import PageEntry, PageImage
 from rarog.news.models import SiteNew
 from rarog.users.models import UserProfile
-from rarog.users.views import index
+from rarog.firstpage.views import index
 
 urlpatterns = patterns('',
     (r'^$', index),

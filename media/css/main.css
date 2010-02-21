@@ -54,7 +54,7 @@ a {
 }
 
 #header {
-    background-image: url( "/site_media/images/rarog-banner-new.png" );
+    background-image: url("/site_media/images/rarog-banner-new.png");
     background-repeat: no-repeat;
     background-position: top left;
     height: 220px;
@@ -134,7 +134,7 @@ a {
 
 #getting-started h2 {
     margin: 0;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: normal;
     color: #333;
     margin-bottom: 25px;
@@ -234,42 +234,42 @@ a {
 }
 
 .button-rarog-news {
-    background: url( "/site_media/images/rarog-news-32-g.png" ) no-repeat;
+    background: url("/site_media/images/rarog-news-32-g.png") no-repeat;
 
 }
 
 .button-rarog-news:hover, .button-rarog-news-in {
-    background: url( "/site_media/images/rarog-news-32.png" ) no-repeat;
+    background: url("/site_media/images/rarog-news-32.png") no-repeat;
 
 }
 
 .button-rarog-history {
-    background: url( "/site_media/images/rarog-history-32-g.png" ) no-repeat;
+    background: url("/site_media/images/rarog-history-32-g.png") no-repeat;
 
 }
 
-.button-rarog-history:hover {
-    background: url( "/site_media/images/rarog-history-32.png" ) no-repeat;
+.button-rarog-history:hover, .button-rarog-history-in  {
+    background: url("/site_media/images/rarog-history-32.png") no-repeat;
 
 }
 
 .button-rarog-galery {
-    background: url( "/site_media/images/rarog-galery-32-g.png" ) no-repeat;
+    background: url("/site_media/images/rarog-galery-32-g.png") no-repeat;
 
 }
 
 .button-rarog-galery:hover {
-    background: url( "/site_media/images/rarog-galery-32.png" ) no-repeat;
+    background: url("/site_media/images/rarog-galery-32.png") no-repeat;
 
 }
 
 .button-rarog-forum {
-    background: url( "/site_media/images/rarog-forum-32-g.png" ) no-repeat;
+    background: url("/site_media/images/rarog-forum-32-g.png") no-repeat;
 
 }
 
 .button-rarog-forum:hover {
-    background: url( "/site_media/images/rarog-forum-32.png" ) no-repeat;
+    background: url("/site_media/images/rarog-forum-32.png") no-repeat;
 
 }
 
@@ -358,7 +358,7 @@ div.news p {
 }
 
 #search-launch {
-    background: transparent url( /site_media/images/search.png ) no-repeat scroll center center;
+    background: transparent url(/site_media/images/search.png) no-repeat scroll center center;
     border: medium none;
     cursor: pointer;
 }
@@ -369,7 +369,7 @@ div.news p {
 }
 
 .story-frame {
-    background: transparent url( /site_media/images/photo-frame.png ) no-repeat scroll center center;
+    background: transparent url(/site_media/images/photo-frame.png) no-repeat scroll center center;
     float: left;
     height: 99px;
     width: 99px;
@@ -410,7 +410,7 @@ img {
 }
 
 .cross-link {
-    background: transparent url( /site_media/images/blank.png ) no-repeat scroll center center;
+    background: transparent url(/site_media/images/blank.png) no-repeat scroll center center;
     display: block;
     float: left;
     height: 16px;
@@ -418,7 +418,7 @@ img {
 }
 
 .active-thumb {
-    background: transparent url( /site_media/images/active.png ) no-repeat scroll center center !important;
+    background: transparent url(/site_media/images/active.png) no-repeat scroll center center !important;
     display: block;
     float: left;
     height: 16px;
@@ -489,16 +489,16 @@ form, fieldset {
     text-align: center;
 }
 
-#events li a {
-font-size:0.9em;
+#events li a, .search_results li a  {
+    font-size: 0.9em;
 }
 
-#events a {
-color:#888888;
+#events a, .search_results a  {
+    color: #888888;
 }
 
 #events, #events ul li {
-list-style-position:inside;
-margin:0;
-padding:0;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
 }
