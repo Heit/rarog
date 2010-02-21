@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block search %} {% endblock %}
+{% block slidecontrol %} {% endblock %}
+{% block contentheader %} {% endblock %}        
+
+{% block menu %}
+   {% include 'entries/nav.html' %}
+{% endblock %}
+
+{% block news %}
+    {% regroup page_data by yearmonth as month_list %}
+
+    <ul id="events" type="disc">
+
+    {% for ym in month_list %}
+        <li>
+            {{ ym.grouper }}
+            <ul>
+            {% for item in ym.list %}
+                <li><a href="{{item.entry.get_absolute_url}}">{{ item.entry.title }}</a></li>
+            {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}        

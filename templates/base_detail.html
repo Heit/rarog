@@ -1,0 +1,16 @@
+{% load i18n %}
+{% include 'includes/header.html' %}
+<div id="about">
+    {% block menu %}
+        {% include 'firstpage/nav.html' %}
+    {% endblock %}
+</div>
+<div id="getting-started">
+    <div id="main-wrap" style="overflow:hidden; _zoom:1;">
+        <div id="content-column">
+         {% block content %}
+         {% endblock %}
+         </div>
+    </div>
+</div>
+{% include 'includes/footer.html' %}

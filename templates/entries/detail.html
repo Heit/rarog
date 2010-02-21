@@ -1,0 +1,40 @@
+{% extends "base_detail.html" %}
+
+{% block menu %}
+  <ul id="menu">
+    <li class="">
+        <a class="button-32 button-rarog-news" href="/firstpage">Про клуб</a>
+    </li>
+    <li>
+        <a class="button-32 button-rarog-history-in" href="/entries">События</a>
+    </li>
+    <li>
+        <a class="button-32 button-rarog-galery" href="rarog-suit.html">Костюм</a>
+    </li>
+    <li>
+        <a class="button-32 button-rarog-forum" href="http://rarog.forum24.ru">Форум</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block content %} 
+        <h1>
+            {{ object.title }}
+        </h1>
+        <h2>
+            {{ object.pub_date|date:"d M Y" }}
+        </h2>
+        <div style="margin: 10px; width: 100%; text-align: center;">
+            <img alt="img" src="/entries/{{ object.image.get_slide_url }}"/>
+        </div>
+        <div>
+            {{ object.body_html|safe }}
+        </div>
+         {% if object.gallery %}
+            {% with object.gallery as gallery %}
+                <div id="event_photos" style="overflow:hidden; height:600px">
+                {% include 'includes/galleriftic.html' %}
+                </div>
+            {% endwith %}
+         {% endif %}
+{% endblock %}

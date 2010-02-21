@@ -1,0 +1,113 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <link rel="stylesheet" href="/site_media/css/main.css" />
+    <link rel="stylesheet" href="/site_media/css/galleriffic.css"/>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Language" content="ru" />
+    <script src="/site_media/js/jquery-1.2.1.pack.js" type="text/javascript"></script>
+    <script src="/site_media/js/jquery-easing.1.2.pack.js" type="text/javascript"></script>
+    <script src="/site_media/js/jquery-easing-compatibility.1.2.pack.js" type="text/javascript"></script>
+    <script src="/site_media/js/coda-slider.1.1.1.pack.js" type="text/javascript"></script>
+    <script src="/site_media/js/dashboard.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    	function getyScroll() {
+        	yScroll = 0;
+	        if (window.innerHeight && window.scrollMaxY || window.innerWidth && window.scrollMaxX) {
+        	    yScroll = window.innerHeight + window.scrollMaxY;
+	            xScroll = window.innerWidth + window.scrollMaxX;
+
+        	    var deff = document.documentElement;
+	            var wff = (deff && deff.clientWidth) || document.body.clientWidth || window.innerWidth || self.innerWidth;
+        	    var hff = (deff && deff.clientHeight) || document.body.clientHeight || window.innerHeight || self.innerHeight;
+
+	            xScroll -= (window.innerWidth - wff);
+        	    yScroll -= (window.innerHeight - hff);
+		}
+	        else if (document.body.scrollHeight > document.body.offsetHeight || document.body.scrollWidth > document.body.offsetWidth) {
+        	    yScroll = document.body.scrollHeight;
+	            xScroll = document.body.scrollWidth;
+        	} else {
+	            yScroll = document.body.offsetHeight;
+        	    xScroll = document.body.offsetWidth;
+	        }
+
+        	return yScroll;
+	    }
+
+         function showLogon() {
+        	document.getElementById("screen").style.display = 'block';
+	        document.getElementById("screen").style.height = getyScroll() + 'px';
+	        document.getElementById("cool-logon").style.display = 'block';
+        	document.getElementById("clogin").focus();
+	 }
+
+	 function hideLogon() {
+	        document.getElementById("screen").style.display = 'none';
+        	document.getElementById("cool-logon").style.display = 'none';
+         }
+</script>
+</head>
+
+<body>
+<div id="page">
+
+<div id="cool-logon">
+    <form id="cool-logon-form" method="post" action="#">
+        <fieldset>
+            <legend><title>{% trans "Please, log in." %}</title></legend>
+            <div>
+
+                <label for="clogin">
+                    Имя пользователя:
+                </label>
+                <input type="text" name="name" value="" id="clogin"/></div>
+            <div>
+                <label for="cpass">
+                    Пароль:
+                </label>
+                <input type="password" name="password" value="" id="cpass"/></div>
+            <input type="hidden" name="task" value="plain"/></fieldset>
+
+        <input type="submit" value="Войти" class="sub"/>
+
+        <h1 style="text-align:right">
+            <a href="admin" onclick="hideLogon();" title="Закрыть">&times;</a>
+        </h1>
+    </form>
+</div>
+
+<div id="screen">
+
+</div>
+
+
+<div id="userwrap" class="gain-layout">
+    <table cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td class="user-wrap-left"></td>
+                <td class="userinfo-top">
+                    <a title="Войти" href="/admin" style="color:white">Войти</a>
+                    <!--<a title="Зарегистрироваться" href="/prepareUserRegister.do" style="color:white">Зарегистрироваться</a>-->
+                </td>
+            </tr>
+            <tr>
+                <td class="user-corner-wrap">
+                    <img alt="rounded corner" src="/site_media/images/kruglyash2.png"/>
+                    <span/>
+                </td>
+                <td class="user-bottom-wrap"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div id="content">
+<div id="header">
+    <h1 style="padding-left:250px; padding-top:100px; font-family:georgia,helvetica,arial,sans-serif; font-size: 1.9em;">
+        Историческая реконструкция</h1>
+</div>
+
