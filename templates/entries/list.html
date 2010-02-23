@@ -1,26 +1,50 @@
-{% extends "entries/index.html" %}
+{% extends "base.html" %}
 {% load i18n %}
+
+{% block search %} {% endblock %}
+{% block slidecontrol %} {% endblock %}
+{% block contentheader %} {% endblock %}
+
+{% block menu %}
+   {% include 'entries/nav.html' %}
+{% endblock %}
+
+{% block news %}
+    <ul id="events" type="disc">
+    {% for item in page_data %}
+        {% if item.isyear %}
+        <li class="year_group">
+            {{ item.year}}
+        </li>
+	{% else %}
+        <li class="month_group">
+            {{ item.monthname }}
+        </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endblock %}
         
 {% block content %}
-    {% with page_data|first as selected %}
+    {% for entry in entries %}
         <h1>
-            {{ selected.entry.title }}
+            {{ entry.title }}
         </h1>
         <h2>
-            {{ selected.entry.pub_date|date:"d M Y" }}
+            {{ entry.pub_date|date:"d M Y" }}
         </h2>
         <div>
-            {% if selected.entry.descriptn %}
+            {% if entry.descriptn %}
             <p>
-              {{ selected.entry.descriptn }}
+              {{ entry.descriptn }}
             </p>
-            <a href="{{ selected.entry.get_absolute_url }}"
+            <a href="{{ entry.get_absolute_url }}"
                style="float:right">
                 {% trans 'Next' %}  &rsaquo;
             </a>
             {% endif %}
         </div>
-    {% endwith %}
+    {% endfor %}
 {% endblock %}
 
 

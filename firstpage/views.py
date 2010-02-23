@@ -13,7 +13,7 @@ from rarog.entries.management.commands.createindex import WHOOSH_SCHEMA
 
 def index(request):
     pagedata = init(request)
-    return render_to_response('firstpage/pageentry_list.html', pagedata,    context_instance=RequestContext(request))
+    return render_to_response('firstpage/list.html', pagedata,    context_instance=RequestContext(request))
 
 def init(request):
     profile_items = UserProfile.objects.order_by('?')[0:1]
