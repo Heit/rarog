@@ -102,7 +102,7 @@ msgid "Search results"
 msgstr "Результаты поска"
 
 msgid "The Rarog Club"
-msgstr "Клуб исторической реконструкции Рарог"
+msgstr "Клуб исторической реконструкции &laquo;Рарог&raquo;"
 
 msgid "Media"
 msgstr "Как это было в картинках"
@@ -124,6 +124,9 @@ msgstr "Скачать оригинал"
 
 msgid "Next"
 msgstr "Далее"
+
+msgid "No results found"
+msgstr "По вашему запросуничего не найдено"
 
 #~ msgid "Rarog administration"
 #~ msgstr "Администрирование сайта 'Рарог'"

@@ -50,7 +50,9 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = '/home/kosinov_kv/djangoprojects/rarog/media'
+
+PHOTOLOGUE_DIR = 'photologue'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -84,21 +86,13 @@ AUTH_PROFILE_MODULE = 'users.UserProfile'
 
 ROOT_URLCONF = 'rarog.urls'
 
-TEMPLATE_DIRS = (
-	os.path.join(os.path.dirname(__file__), 'templates')
-)
+TEMPLATE_DIRS = '/home/kosinov_kv/djangoprojects/rarog/templates'
 
-STATIC_DOC_ROOT = (
-	os.path.join(os.path.dirname(__file__), 'media')
-)
+STATIC_DOC_ROOT = '/home/kosinov_kv/djangoprojects/rarog/media'
 
-GALERY_PATH = (
-	os.path.join(os.path.dirname(__file__), 'photologue')
-)
+GALERY_PATH = '/home/kosinov_kv/djangoprojects/rarog/media/photologue'
 
-WHOOSH_INDEX = (
-    os.path.join(os.path.dirname(__file__), 'idx')
-)
+WHOOSH_INDEX = '/home/kosinov_kv/djangoprojects/rarog/idx'
 
 
 INSTALLED_APPS = (

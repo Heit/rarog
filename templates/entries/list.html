@@ -10,15 +10,15 @@
             {{ selected.entry.pub_date|date:"d M Y" }}
         </h2>
         <div>
+            {% if selected.entry.descriptn %}
             <p>
-              {% if selected.entry.descriptn %}
-                {{ selected.entry.descriptn }}
-              {% endif %}
+              {{ selected.entry.descriptn }}
             </p>
             <a href="{{ selected.entry.get_absolute_url }}"
                style="float:right">
                 {% trans 'Next' %}  &rsaquo;
             </a>
+            {% endif %}
         </div>
     {% endwith %}
 {% endblock %}

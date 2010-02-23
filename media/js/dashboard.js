@@ -91,23 +91,3 @@ $(function() {
     theInterval();
 });
 
-/*
- * Accordian Effects
- *
- * Copyright © 2009 Leonard Chan
- * All rights reserved.
-*/
-
-jQuery().ready(function() {
-
-    // second simple accordion with special markup
-    jQuery('#accordion').accordion({
-        navigation: true,
-        event: 'mouseover',
-        animated: 'bounceslide',
-        autoHeight: false
-    });
-
-});
-	
-		

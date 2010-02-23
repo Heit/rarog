@@ -5,10 +5,10 @@
     <div id="main-photo-slider" class="stripViewer" style="margin:10px">
        <div class="panelContainer">
         {% for pageimage in pageimages %}
-           <div class="panel" title="Panel{{pageimage.dataorder}}">
+           <div class="panel" title="{{pageimage.image.title}}">
                 <div class="wrapper">
 		   <a title="">
-                     <img src="{{ pageimage.image.get_slide_url }}"  alt="" width="600"/>
+                     <img src="{{ pageimage.image.get_slide_url }}"  alt="" width="500"/>
                    </a>
                 </div>
             </div>
@@ -26,6 +26,8 @@
         <ul class="search_results">
             {% for hit in hits %}
                 <li><a href="{{ hit.url }}">{{ hit.title }}</a></li>
+	    {% empty %}
+		<li>{% trans 'No result found' %}</li>
             {% endfor %}
         </ul>
         {% else %}
