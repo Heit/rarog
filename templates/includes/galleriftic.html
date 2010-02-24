@@ -23,16 +23,16 @@
     <ul class="thumbs noscript">
         {% for photo in gallery.public %}
         <li>
-            <a class="thumb" name="{{ photo.title }}" title="{{ photo.title }}" href="/entries/{{ photo.get_display_url }}"><img
-                    src="/entries/{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>
+            <a class="thumb" name="{{ photo.title }}" title="{{ photo.title }}" href="/{{ photo.get_gallery_url }}"><img
+                    src="/{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>
 
-            <div class="caption">
+            <div class="caption" style="background-color:#666; color: white; font-size:0.9em; width:250px">
                 <div class="download">
-                    <a href="/entries/{{ photo.get_large_url }}">{% trans 'Download Original' %}</a>
+                    <a href="/{{ photo.get_large_url }}">{% trans 'Download Original' %}</a>
                 </div>
                 <div class="image-title">{{ photo.title }}</div>
 
-                <div class="image-desc">Test{{ photo.caption }}</div>
+                <div class="image-desc">{{ photo.caption }}</div>
             </div>
         </li>
         {% endfor %}

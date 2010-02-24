@@ -16,7 +16,7 @@
                 <div class="sidebar-header">
                     <h3 style="color:#555555; font-family:arial,sans-serif;">{% trans "Search" %}</h3>
                 </div>
-                <form method="get" action="#">
+                <form method="get" action="/">
                     <input name="q" id="search-string" type="text" value="{{ query|default_if_none:''}}"
                            style="width: 20ex; color: rgb(170, 170, 170);"/>
                     <input id="search-launch" type="submit" value=""/>

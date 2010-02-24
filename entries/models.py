@@ -3,7 +3,7 @@ import os
 from django.db import models
 from django.contrib.syndication.feeds import Feed
 from django.contrib.sitemaps import Sitemap
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 import markdown
 from tagging.fields import TagField
@@ -40,8 +40,8 @@ class Entry(models.Model):
     class Meta:
         ordering = ('-pub_date',)
         get_latest_by = 'pub_date'
-	verbose_name = (_('entry'))
-        verbose_name_plural = (_('entries'))
+	verbose_name = _('entry')
+        verbose_name_plural = _('entries')
 
     def __unicode__(self):
 		return u'%s' %(self.title)

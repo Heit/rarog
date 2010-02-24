@@ -367,7 +367,7 @@ div.news p {
 
 #search-string {
     color: #AAAAAA;
-    width: 20ex !important;
+    width: 18ex !important;
 }
 
 .story-frame {
@@ -503,4 +503,18 @@ form, fieldset {
     list-style-position: inside;
     margin: 0;
     padding: 0;
+}
+
+li.year_group {
+   margin: 0 !important;
+   list-style-type:none;
+}
+
+li.month_group {
+  margin:0;
+  list-style-type:none;
+  padding-left: 10px;
+}
+
+
 }

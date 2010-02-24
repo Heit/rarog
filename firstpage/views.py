@@ -20,11 +20,12 @@ def init(request):
     profile_item = None
     if len(profile_items) > 0:
         profile_item = profile_items[0]
-    hits = search(request)
+    query, hits = search(request)
     pagedata = {'pageitems' : PageEntry.objects.all(),
                 'pageimages' : PageImage.objects.all(),
                 'sitenews' : SiteNew.objects.order_by('pubdate')[:5],
                 'hits': hits,
+		'query': query,
                 'profile': profile_item,
     }
     return pagedata
@@ -44,7 +45,7 @@ def search(request):
         if qry is not None:
             searcher = ix.searcher()
             hits = searcher.search(qry)
-    return hits
+    return query, hits
 
 
 

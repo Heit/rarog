@@ -28,11 +28,9 @@
 {% block content %}
     {% for entry in entries %}
         <h1>
-            {{ entry.title }}
-        </h1>
-        <h2>
-            {{ entry.pub_date|date:"d M Y" }}
-        </h2>
+            {{ entry.title }} 
+	</h1>
+	<h2>{{ entry.pub_date|date:"d M Y" }}</h2>
         <div>
             {% if entry.descriptn %}
             <p>
