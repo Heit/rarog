@@ -47,10 +47,12 @@
 		<p class="title" style="text-decoration:underline">
 			{{ sitenew.title }}
 		</p>
-		<p class="content" style="font-size: 0.9em; font-style: italic; padding-left: 5px;">{{sitenew.descriptn}}</p>
-		<p class="date" style="font-size: 0.8em; color: rgb(119, 119, 119); padding-left: 5px;">Дата проведения: {{ sitenew.eventdate }}</p>
-		<p class="organizer" style="font-size: 0.8em; color: rgb(119, 119, 119); padding-left: 5px;">Организатор: {{ sitenew.organizer }}</p>
-		<p class="site" style="font-size: 0.8em; color: rgb(119, 119, 119); padding-left: 5px;">Сайт мероприятия: <a href="{{sitenew.orgsite}}">{{sitenew.orgsite}}</a></p>
+		<br/>
+		<p class="content" style="font-size: 0.9em; font-style: italic; padding-left: 5px; color: rgb(119, 119, 119);">{{sitenew.descriptn}}</p>
+		<br/>
+		<p class="date" style="font-size: 0.9em;">Дата проведения: <span style="text-decoration:underline">{{ sitenew.eventdate }}</span></p>
+		<p class="organizer" style="font-size: 0.9em; ">Организатор: <span style="text-decoration:underline">{{ sitenew.organizer }}</span></p>
+		<p class="site" style="font-size: 0.9em;">Сайт мероприятия: <a href="{{sitenew.orgsite}}">{{sitenew.orgsite}}</a></p>
 		</p>
 	</div>
         {% endfor %}
@@ -58,7 +60,7 @@
 
 {% block story %}
   {% if profile %}
-    <h2>Лица клуба</h2>
+    <h2><a href="/users" style="color:#8C6239"> Лица клуба</a></h2>
 
     <div class="story-frame">
 	{% if profile.photo %}
