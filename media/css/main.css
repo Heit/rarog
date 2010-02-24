@@ -258,7 +258,7 @@ a {
 
 }
 
-.button-rarog-galery:hover {
+.button-rarog-galery:hover, .button-rarog-galery-in  {
     background: url("/site_media/images/rarog-galery-32.png") no-repeat;
 
 }

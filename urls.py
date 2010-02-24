@@ -19,8 +19,7 @@ urlpatterns = patterns('',
      (r'^photologue/', include('photologue.urls')),
      (r'^$', include('rarog.firstpage.urls')),
      (r'^entries/', include('rarog.entries.urls')),
-#     (r'^$', 'django.views.generic.simple.redirect_to', {'url': '/firstpage', 'permanent': True}),
+     (r'^users/', include('rarog.users.urls')),
      (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_DOC_ROOT}),
 
-      
 )
