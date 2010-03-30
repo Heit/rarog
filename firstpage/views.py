@@ -46,13 +46,3 @@ def search(request):
             searcher = ix.searcher()
             hits = searcher.search(qry)
     return query, hits
-
-
-
-
-
-
-    
-
-	
-
