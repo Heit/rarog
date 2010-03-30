@@ -4,7 +4,7 @@ from django.conf import settings
 from django.template import RequestContext
 from whoosh import index, fields
 from whoosh.filedb.filestore import FileStorage
-from whoosh.qparser import QueryParser
+from whoosh.qparser import MultifieldParser
 from rarog.users.models import UserProfile
 from rarog.news.models import SiteNew
 from rarog.firstpage.models import PageEntry, PageImage
@@ -23,7 +23,7 @@ def init(request):
     query, hits = search(request)
     pagedata = {'pageitems' : PageEntry.objects.all(),
                 'pageimages' : PageImage.objects.all(),
-                'sitenews' : SiteNew.objects.order_by('pubdate')[:5],
+                'sitenews' : SiteNew.objects.order_by('-pubdate')[:5],
                 'hits': hits,
 		'query': query,
                 'profile': profile_item,
@@ -37,7 +37,7 @@ def search(request):
     query = request.GET.get('q', None)
     if query is not None and query != u"":
         query = query.replace('+', ' AND ').replace(' -', ' NOT ')
-        parser = QueryParser("body_html", schema=ix.schema)
+        parser = MultifieldParser(['title','body_html'], schema=ix.schema)
         try:
             qry = parser.parse(query)
         except:

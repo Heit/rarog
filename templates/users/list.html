@@ -9,7 +9,7 @@
 <div class="userprofile" style="overflow:hidden"> 
 <div class="story-frame">
     {% if profile.photo %}
-    <img title="Лицо клуба" alt="Лицо клуба" src="/{{ profile.photo.get_userthumb_url }}"/>
+    <img title="Лицо клуба" alt="Лицо клуба" src="{{ profile.photo.get_userthumb_url }}"/>
     {% else %}
     <img title="Лицо клуба" alt="Лицо клуба" src="/images/rarog-unknown-77.png"/>
     {% endif %}

@@ -12,7 +12,7 @@
             {{ object.pub_date|date:"d M Y" }}
         </h2>
         <div style="margin: 10px; width: 100%; text-align: center;">
-            <img alt="img" src="/{{ object.image.get_slide_url }}"/>
+            <img alt="img" src="{{ object.image.get_slide_url }}"/>
         </div>
         <div>
             {{ object.body_html|safe }}
