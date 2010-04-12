@@ -1,20 +1,7 @@
 {% extends "base_detail.html" %}
 
 {% block menu %}
-  <ul id="menu">
-    <li class="">
-        <a class="button-32 button-rarog-news" href="/firstpage">Про клуб</a>
-    </li>
-    <li>
-        <a class="button-32 button-rarog-history-in" href="/entries">События</a>
-    </li>
-    <li>
-        <a class="button-32 button-rarog-galery" href="rarog-suit.html">Костюм</a>
-    </li>
-    <li>
-        <a class="button-32 button-rarog-forum" href="http://rarog.forum24.ru">Форум</a>
-    </li>
-</ul>
+  {% include 'entries/nav.html' %}
 {% endblock %}
 
 {% block content %} 
@@ -25,7 +12,7 @@
             {{ object.pub_date|date:"d M Y" }}
         </h2>
         <div style="margin: 10px; width: 100%; text-align: center;">
-            <img alt="img" src="/entries/{{ object.image.get_slide_url }}"/>
+            <img alt="img" src="{{ object.image.get_slide_url }}"/>
         </div>
         <div>
             {{ object.body_html|safe }}

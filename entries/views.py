@@ -1,6 +1,8 @@
 #coding: utf-8 
+#Heit
 import re
-from datetime import datetime
+import calendar
+from datetime import date
 from collections import defaultdict
 from django.shortcuts import render_to_response
 from rarog.entries.models import Entry
@@ -9,17 +11,21 @@ MONTH_NAMES = ('', 'Январь', 'Февраль', 'Март', 'Апрель',
 	       'Сентябрь', 'Ноябрь', 'Декабрь')
 
 def frontpage(request):
-    entries, pagedata = init()
+    year = request.GET.get('year', date.today().year)
+    month = request.GET.get('month', date.today().month)
+    basedate = date(year, month, calendar.monthrange(year, month)[1])
+    pagedata = init(basedate)
     return render_to_response('entries/list.html',pagedata)
 
-def init():
+def init(basedate):
     entries = Entry.objects.order_by('-pub_date').all()
     archive_data = get_year_map(entries)
-    pagedata = {'page_data': archive_data,}
-    return entries, pagedata
+    pagedata = {'page_data': archive_data,
+                'entries': entries,}
+    return pagedata
 
-def create_archive_data(entries):
-    archive_data = []
+def get_year_map(entries):
+    result_data = []
     count = {}
     mcount = {}
     for entry in entries:
@@ -34,20 +40,13 @@ def create_archive_data(entries):
         else:
             mcount[year][month] += 1
     for year in sorted(count.iterkeys(), reverse = True):
-        archive_data.append({'isyear':True,
+        result_data.append({'isyear':True,
                              'year': year,
                              'count': count[year],})
         for month in sorted(mcount[year].iterkeys(), reverse = True):
-            archive_data.append({'isyear':False,
-                                 'yearmonth': '%d/%02d' % (year, month),
-                                 'monthname': MONTH_NAMES[month],
-                                 'count': mcount[year][month],})
-    return archive_data
-
-def get_year_map(entries):
-    result_data = []
-    for entry in entries:
-        result_data.append({'entry': entry, 
-                            'yearmonth': '%d/%02d' % (entry.pub_date.year, entry.pub_date.month)})
+            result_data.append({'isyear':False,
+                                'yearmonth': '%d/%02d' % (year, month),
+                                'monthname': MONTH_NAMES[month],
+                                'count': mcount[year][month],})
     return result_data
 

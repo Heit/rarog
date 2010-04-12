@@ -2,7 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User, UserManager
 from photologue.models import Photo
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True, related_name='profile')
@@ -14,7 +14,7 @@ class UserProfile(models.Model):
 
     class Meta:
         ordering = ('-user',)
-        verbose_name = (_('userprofile'))
-        verbose_name_plural = (_('userprofiles'))
+        verbose_name = _('userprofile')
+        verbose_name_plural = _('userprofiles')
 
 

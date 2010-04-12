@@ -7,6 +7,7 @@ from rarog.entries.models import models as entry_models
 from django.core.management.base import NoArgsCommand, CommandError
 from whoosh import index
 import os
+import sys
 
 WHOOSH_SCHEMA = fields.Schema(title=fields.TEXT(stored=True),
                               body_html=fields.TEXT(analyzer=StemmingAnalyzer()),
@@ -14,20 +15,20 @@ WHOOSH_SCHEMA = fields.Schema(title=fields.TEXT(stored=True),
 
 def create_index():
     if not os.path.exists(settings.WHOOSH_INDEX):
-        os.mkdir(settings.WHOOSH_INDEX)
+        os.makedirs(settings.WHOOSH_INDEX)
     storage = FileStorage(settings.WHOOSH_INDEX)
-    ix = storage.create_index(schema=WHOOSH_SCHEMA, indexname="rarog")
+    storage.create_index(schema=WHOOSH_SCHEMA, indexname="rarog")
 
 
 class Command(NoArgsCommand):
     help = "Creates full-text index for Rarog-Site application named rarog"
-
     requires_model_validation = False
-
     def handle_noargs(self, **options):
         try:
             create_index()
-        except Error:
+            print "Initial Whoosh index in directory '%s' created" % (settings.WHOOSH_INDEX)
+        except Exception as err:
+            print 'Error in index: ', err
             raise CommandError("Can't create full-text index")
 
 

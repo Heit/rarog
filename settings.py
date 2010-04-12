@@ -1,4 +1,18 @@
+# -*- coding: utf-8 -*-
+
 # Django settings for rarog project.
+# Для корректной отдачи картинок
+# нужен сервер, который отдает статику
+# к примеру nginx,
+
+#location /photologue {
+#      root   /home/heit/production/djangoprojects/rarog/media;
+#      autoindex on;
+#      allow 127.0.0.1;
+#      deny all;
+#}
+
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -50,12 +64,15 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = ''
+#MEDIA_ROOT = os.path.join(os.path.dirname(__file__),'media')
+MEDIA_ROOT = '/home/heit/production/djangoprojects/rarog/media'
+
+PHOTOLOGUE_DIR = 'photologue'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = 'http://localhost'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -81,24 +98,19 @@ MIDDLEWARE_CLASSES = (
 
 AUTH_PROFILE_MODULE = 'users.UserProfile'
 
+ABSOLUTE_URL_OVERRIDES = {
+    'photologue.photo': lambda o: "%s" % o.get_thumbnail_url(),
+}
 
 ROOT_URLCONF = 'rarog.urls'
 
-TEMPLATE_DIRS = (
-	os.path.join(os.path.dirname(__file__), 'templates')
-)
+TEMPLATE_DIRS = '/home/heit/production/djangoprojects/rarog/templates'
 
-STATIC_DOC_ROOT = (
-	os.path.join(os.path.dirname(__file__), 'media')
-)
+STATIC_DOC_ROOT = '/home/heit/production/djangoprojects/rarog/media'
 
-GALERY_PATH = (
-	os.path.join(os.path.dirname(__file__), 'photologue')
-)
+GALERY_PATH = '/home/heit/production/djangoprojects/rarog/media/photologue'
 
-WHOOSH_INDEX = (
-    os.path.join(os.path.dirname(__file__), 'idx')
-)
+WHOOSH_INDEX = '/home/heit/production/djangoprojects/rarog/idx'
 
 
 INSTALLED_APPS = (

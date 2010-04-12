@@ -23,16 +23,15 @@
     <ul class="thumbs noscript">
         {% for photo in gallery.public %}
         <li>
-            <a class="thumb" name="{{ photo.title }}" title="{{ photo.title }}" href="/entries/{{ photo.get_display_url }}"><img
-                    src="/entries/{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>
-
-            <div class="caption">
+            <a class="thumb" name="{{ photo.title }}" title="{{ photo.title }}" href="{{ photo.get_gallery_url }}"><img
+                    src="{{ photo.get_thumbnail_url }}" alt="{{ photo.title }}"/></a>
+            <div class="caption" style="background-color:#666; color: white; font-size:0.9em; width:250px">
                 <div class="download">
-                    <a href="/entries/{{ photo.get_large_url }}">{% trans 'Download Original' %}</a>
+                    <a href="{{ photo.get_large_url }}">{% trans 'Download Original' %}</a>
                 </div>
                 <div class="image-title">{{ photo.title }}</div>
 
-                <div class="image-desc">Test{{ photo.caption }}</div>
+                <div class="image-desc">{{ photo.caption }}</div>
             </div>
         </li>
         {% endfor %}
@@ -42,7 +41,7 @@
 <script type="text/javascript">
     jQuery(document).ready(function($) {
         // We only want these styles applied when javascript is enabled
-        $('div.navigation').css({'width' : '100px', 'float' : 'left'});
+        $('div.navigation').css({'width' : '120px', 'float' : 'left'});
         $('div.content').css('display', 'block');
 
         // Initially set opacity on thumbs and add
@@ -73,8 +72,8 @@
             pauseLinkText:             "{% trans 'Pause Slideshow' %}",
             prevLinkText:              "&lsaquo; {% trans 'Previous Photo'%}",
             nextLinkText:              "{% trans 'Next Photo'%} &rsaquo;",
-            nextPageLinkText:          'Next &rsaquo;',
-            prevPageLinkText:          '&lsaquo; Prev',
+            nextPageLinkText:          '{% trans 'Next Photo'%} &rsaquo;',
+            prevPageLinkText:          '&lsaquo; {% trans 'Previous Photo'%}',
             enableHistory:             false,
             autoStart:                 false,
             syncTransitions:           true,

@@ -3,8 +3,9 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <link rel="stylesheet" href="/site_media/css/main.css" />
-    <link rel="stylesheet" href="/site_media/css/galleriffic.css"/>
+    <title>Клуб &laquo;Рарог&raquo;</title>
+    <link rel="stylesheet"  type="text/css" href="/site_media/css/main.css" />
+    <link rel="stylesheet"  type="text/css" href="/site_media/css/galleriffic.css"/>
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
     <meta http-equiv="Content-Language" content="ru" />
     <script src="/site_media/js/jquery-1.2.1.pack.js" type="text/javascript"></script>
@@ -55,28 +56,6 @@
 <div id="page">
 
 <div id="cool-logon">
-    <form id="cool-logon-form" method="post" action="#">
-        <fieldset>
-            <legend><title>{% trans "Please, log in." %}</title></legend>
-            <div>
-
-                <label for="clogin">
-                    Имя пользователя:
-                </label>
-                <input type="text" name="name" value="" id="clogin"/></div>
-            <div>
-                <label for="cpass">
-                    Пароль:
-                </label>
-                <input type="password" name="password" value="" id="cpass"/></div>
-            <input type="hidden" name="task" value="plain"/></fieldset>
-
-        <input type="submit" value="Войти" class="sub"/>
-
-        <h1 style="text-align:right">
-            <a href="admin" onclick="hideLogon();" title="Закрыть">&times;</a>
-        </h1>
-    </form>
 </div>
 
 <div id="screen">
@@ -95,11 +74,11 @@
                 </td>
             </tr>
             <tr>
-                <td class="user-corner-wrap">
-                    <img alt="rounded corner" src="/site_media/images/kruglyash2.png"/>
-                    <span/>
+                <td class="user-corner-wrap" style="font-size:1px">
+                    <img  height="10px" width="10px" alt="rounded corner" src="/site_media/images/kruglyash2.png"/>
+		    <span/>
                 </td>
-                <td class="user-bottom-wrap"></td>
+                <td class="user-bottom-wrap" ></td>
             </tr>
         </tbody>
     </table>

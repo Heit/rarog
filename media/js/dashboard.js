@@ -76,8 +76,9 @@ theInterval = function(cur) {
 };
 
 $(function() {
-
-    $("#main-photo-slider").codaSlider();
+    if ($("#main-photo-slider").length != 0){
+    	$("#main-photo-slider").codaSlider();
+    }
 
     $navthumb = $(".cross-link");
     $crosslink = $(".cross-link");
@@ -91,23 +92,3 @@ $(function() {
     theInterval();
 });
 
-/*
- * Accordian Effects
- *
- * Copyright © 2009 Leonard Chan
- * All rights reserved.
-*/
-
-jQuery().ready(function() {
-
-    // second simple accordion with special markup
-    jQuery('#accordion').accordion({
-        navigation: true,
-        event: 'mouseover',
-        animated: 'bounceslide',
-        autoHeight: false
-    });
-
-});
-	
-		

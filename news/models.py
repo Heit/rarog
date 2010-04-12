@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 import datetime
 
@@ -13,8 +13,8 @@ class SiteNew(models.Model):
 
     class Meta:
         ordering = ('-pubdate',)
-        verbose_name = (_('sitenew'))
-        verbose_name_plural = (_('sitenews'))
+        verbose_name = _('sitenew')
+        verbose_name_plural = _('sitenews')
 
     def save(self):
         self.pubdate = datetime.datetime.now()

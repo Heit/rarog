@@ -258,7 +258,7 @@ a {
 
 }
 
-.button-rarog-galery:hover {
+.button-rarog-galery:hover, .button-rarog-galery-in  {
     background: url("/site_media/images/rarog-galery-32.png") no-repeat;
 
 }
@@ -312,8 +312,8 @@ div.news p {
 /* This is the viewing window */
     position: relative;
     overflow: hidden; /*border: 5px solid #aaa; *//* this is the border. should have the same value for the links */
-    margin: auto;
-    width: 600px; /* Also specified in  .stripViewer .panelContainer .panel  below */
+/*    margin: auto; */
+    width: 500px; /* Also specified in  .stripViewer .panelContainer .panel  below */
     height: 240px;
     clear: both;
     background: #fff;
@@ -324,7 +324,7 @@ div.news p {
     position: relative;
     left: 0;
     top: 0;
-    width: 100%;
+/*   width: 100%;*/
     list-style-type: none; /* -moz-user-select: none; // This breaks CSS validation but stops accidental (and intentional - beware) panel highlighting in Firefox. Some people might find this useful, crazy fools. */
 }
 
@@ -333,7 +333,7 @@ div.news p {
     float: left;
     height: 100%;
     position: relative;
-    width: 700px; /* Also specified in  .stripViewer  above */
+    width: 500px; /* Also specified in  .stripViewer  above */
 }
 
 .stripNav {
@@ -361,11 +361,13 @@ div.news p {
     background: transparent url(/site_media/images/search.png) no-repeat scroll center center;
     border: medium none;
     cursor: pointer;
+    width: 24px;
+    height: 24px;
 }
 
 #search-string {
     color: #AAAAAA;
-    width: 20ex !important;
+    width: 18ex !important;
 }
 
 .story-frame {
@@ -501,4 +503,18 @@ form, fieldset {
     list-style-position: inside;
     margin: 0;
     padding: 0;
+}
+
+li.year_group {
+   margin: 0 !important;
+   list-style-type:none;
+}
+
+li.month_group {
+  margin:0;
+  list-style-type:none;
+  padding-left: 10px;
+}
+
+
 }

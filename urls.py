@@ -16,10 +16,10 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
      (r'^admin/', include(admin.site.urls)),
-     (r'^photologue/', include('photologue.urls')),
-     (r'^firstpage/', include('rarog.firstpage.urls')),
+    # (r'^photologue/', include('photologue.urls')),
+     (r'^$', include('rarog.firstpage.urls')),
      (r'^entries/', include('rarog.entries.urls')),
+     (r'^users/', include('rarog.users.urls')),
      (r'^site_media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_DOC_ROOT}),
 
-      
 )
