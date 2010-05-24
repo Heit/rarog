@@ -26,8 +26,8 @@
         <ul class="search_results">
             {% for hit in hits %}
                 <li><a href="{{ hit.url }}">{{ hit.title }}</a></li>
-	    {% empty %}
-		<li>{% trans 'No results found' %}</li>
+	          {% empty %}
+	             	<li>{% trans 'No results found' %}</li>
             {% endfor %}
         </ul>
         {% else %}

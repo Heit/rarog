@@ -1,92 +1,79 @@
 {% load i18n %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Клуб &laquo;Рарог&raquo;</title>
-    <link rel="stylesheet"  type="text/css" href="/site_media/css/main.css" />
-    <link rel="stylesheet"  type="text/css" href="/site_media/css/galleriffic.css"/>
-    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="Content-Language" content="ru" />
-    <script src="/site_media/js/jquery-1.2.1.pack.js" type="text/javascript"></script>
-    <script src="/site_media/js/jquery-easing.1.2.pack.js" type="text/javascript"></script>
-    <script src="/site_media/js/jquery-easing-compatibility.1.2.pack.js" type="text/javascript"></script>
-    <script src="/site_media/js/coda-slider.1.1.1.pack.js" type="text/javascript"></script>
-    <script src="/site_media/js/dashboard.js" type="text/javascript"></script>
-    <script type="text/javascript">
-    	function getyScroll() {
-        	yScroll = 0;
-	        if (window.innerHeight && window.scrollMaxY || window.innerWidth && window.scrollMaxX) {
-        	    yScroll = window.innerHeight + window.scrollMaxY;
-	            xScroll = window.innerWidth + window.scrollMaxX;
+  <title>Клуб &laquo;Рарог&raquo;</title>
+  <link rel="stylesheet" type="text/css" href="/site_media/css/main.css"/>
+  <link rel="stylesheet" type="text/css" href="/site_media/css/galleriffic.css"/>
+  <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+  <meta http-equiv="Content-Language" content="ru"/>
+  <script src="/site_media/js/jquery-1.2.1.pack.js" type="text/javascript"></script>
+  <script src="/site_media/js/jquery-easing.1.2.pack.js" type="text/javascript"></script>
+  <script src="/site_media/js/jquery-easing-compatibility.1.2.pack.js" type="text/javascript"></script>
+  <script src="/site_media/js/coda-slider.1.1.1.pack.js" type="text/javascript"></script>
+  <script src="/site_media/js/dashboard.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var timeout    = 500;
+    var closetimer = 0;
+    var ddmenuitem = 0;
 
-        	    var deff = document.documentElement;
-	            var wff = (deff && deff.clientWidth) || document.body.clientWidth || window.innerWidth || self.innerWidth;
-        	    var hff = (deff && deff.clientHeight) || document.body.clientHeight || window.innerHeight || self.innerHeight;
+    function menu_open() {
+       menu_canceltimer();
+       menu_close();
+       ddmenuitem = $(this).find('ul').css('visibility', 'visible');
+    }
 
-	            xScroll -= (window.innerWidth - wff);
-        	    yScroll -= (window.innerHeight - hff);
-		}
-	        else if (document.body.scrollHeight > document.body.offsetHeight || document.body.scrollWidth > document.body.offsetWidth) {
-        	    yScroll = document.body.scrollHeight;
-	            xScroll = document.body.scrollWidth;
-        	} else {
-	            yScroll = document.body.offsetHeight;
-        	    xScroll = document.body.offsetWidth;
-	        }
+    function menu_close() {
+      if(ddmenuitem) ddmenuitem.css('visibility', 'hidden');
+    }
 
-        	return yScroll;
-	    }
+    function menu_timer() {
+      closetimer = window.setTimeout(menu_close, timeout);
+    }
 
-         function showLogon() {
-        	document.getElementById("screen").style.display = 'block';
-	        document.getElementById("screen").style.height = getyScroll() + 'px';
-	        document.getElementById("cool-logon").style.display = 'block';
-        	document.getElementById("clogin").focus();
-	 }
+    function menu_canceltimer() {
+      if(closetimer) {
+          window.clearTimeout(closetimer);
+          closetimer = null;
+      }
+    }
 
-	 function hideLogon() {
-	        document.getElementById("screen").style.display = 'none';
-        	document.getElementById("cool-logon").style.display = 'none';
-         }
-</script>
+    $(document).ready(function() {
+       $('#menu > li').bind('mouseover', menu_open);
+       $('#menu > li').bind('mouseout',  menu_timer);
+    });
+    document.onclick = menu_close;
+  </script>
 </head>
 
 <body>
 <div id="page">
 
-<div id="cool-logon">
-</div>
 
-<div id="screen">
-
-</div>
-
-
-<div id="userwrap" class="gain-layout">
+  <div id="userwrap" class="gain-layout">
     <table cellspacing="0" cellpadding="0">
-        <tbody>
-            <tr>
-                <td class="user-wrap-left"></td>
-                <td class="userinfo-top">
-                    <a title="Войти" href="/admin" style="color:white">Войти</a>
-                    <!--<a title="Зарегистрироваться" href="/prepareUserRegister.do" style="color:white">Зарегистрироваться</a>-->
-                </td>
-            </tr>
-            <tr>
-                <td class="user-corner-wrap" style="font-size:1px">
-                    <img  height="10px" width="10px" alt="rounded corner" src="/site_media/images/kruglyash2.png"/>
-		    <span/>
-                </td>
-                <td class="user-bottom-wrap" ></td>
-            </tr>
-        </tbody>
+      <tbody>
+      <tr>
+        <td class="user-wrap-left"></td>
+        <td class="userinfo-top">
+          <a title="Войти" href="/admin" style="color:white">Войти</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="user-corner-wrap" style="font-size:1px">
+          <img height="10px" width="10px" alt="rounded corner" src="/site_media/images/kruglyash2.png"/>
+          <span/>
+        </td>
+        <td class="user-bottom-wrap"></td>
+      </tr>
+      </tbody>
     </table>
-</div>
+  </div>
 
-<div id="content">
-<div id="header">
-    <h1 style="padding-left:250px; padding-top:100px; font-family:georgia,helvetica,arial,sans-serif; font-size: 1.9em;">
+  <div id="content">
+    <div id="header">
+      <h1 style="padding-left:250px; padding-top:100px; font-family:georgia,helvetica,arial,sans-serif; font-size: 1.9em;">
         Историческая реконструкция</h1>
-</div>
+    </div>
 

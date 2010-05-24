@@ -122,7 +122,7 @@ a {
 
 #getting-started {
     border-top: 1px solid #ccc;
-    margin-top: 25px;
+    margin-top: 60px;
     padding-top: 15px;
     overflow: hidden;
 }
@@ -205,7 +205,7 @@ a {
 }
 
 #menu {
-    overflow: hidden;
+    /*overflow: hidden;*/
     margin-top: -10px;
     padding-left: 20%;
     padding-top: 15px;
@@ -230,8 +230,32 @@ a {
     float: left;
     width: 20%;
     padding: 10px 0 10px 0;
-
 }
+
+#menu li a {
+  display: block;
+  white-space:nowrap;
+}
+
+#menu li ul	{
+    margin: 0;
+		padding: 0;
+		position: absolute;
+		visibility: hidden;
+		border-top: 1px solid white
+}
+
+#menu li ul li {
+    float: none;
+	  display: inline
+}
+
+#menu li ul li a {
+    width: auto;
+}
+
+
+
 
 .button-rarog-news {
     background: url("/site_media/images/rarog-news-32-g.png") no-repeat;
@@ -262,6 +286,18 @@ a {
     background: url("/site_media/images/rarog-galery-32.png") no-repeat;
 
 }
+
+.button-rarog-library {
+    background: url("/site_media/images/rarog-library-32-g.png") no-repeat;
+
+}
+
+.button-rarog-library:hover, .button-rarog-library-in  {
+    background: url("/site_media/images/rarog-library-32.png") no-repeat;
+
+}
+
+
 
 .button-rarog-forum {
     background: url("/site_media/images/rarog-forum-32-g.png") no-repeat;
